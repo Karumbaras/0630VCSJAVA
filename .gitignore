@@ -29,4 +29,5 @@ bin
 #intellij associated files
 .idea
 out
-.iml
+*.iml
+META-INF
