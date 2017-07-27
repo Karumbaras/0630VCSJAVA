@@ -12,7 +12,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        KavosAparatas aparatas = new KavosAparatas(0, -5, 10, 5);
+        KavosAparatas aparatas = new KavosAparatas(10, 10, 10, 10, 5);
         aparatas.paruoskKavos("juoda");
 
     }

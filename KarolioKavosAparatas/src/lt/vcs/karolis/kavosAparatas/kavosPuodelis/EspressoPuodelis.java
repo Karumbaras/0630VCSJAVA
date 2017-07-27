@@ -8,7 +8,7 @@ import lt.vcs.karolis.kavosAparatas.produktai.Produktai;
 public class EspressoPuodelis extends KavosPuodelis {
 
     public EspressoPuodelis() {
-        super("Espresso", new Produktai(3, 4, 4));
+        super("Espresso", new Produktai(3, 4, 4, 3, 4));
     }
 
 }

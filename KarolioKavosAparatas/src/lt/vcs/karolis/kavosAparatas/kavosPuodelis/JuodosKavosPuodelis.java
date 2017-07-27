@@ -13,6 +13,6 @@ import lt.vcs.karolis.kavosAparatas.produktai.Produktai;
 public class JuodosKavosPuodelis extends KavosPuodelis {
 
     public JuodosKavosPuodelis() {
-        super("Juoda", new Produktai(2, 2, 2));
+        super("Juoda", new Produktai(2, 2, 2, 2, 2));
     }
 }
