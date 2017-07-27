@@ -6,7 +6,7 @@ public class JuodosKavosPuodelis extends KavosPuodelis{
 
     public JuodosKavosPuodelis() {
 
-        super("Juoda kava", 1, 2, 3);
+        super("Juoda kava", 1, 2, 3, 0);
 
     }
 }
