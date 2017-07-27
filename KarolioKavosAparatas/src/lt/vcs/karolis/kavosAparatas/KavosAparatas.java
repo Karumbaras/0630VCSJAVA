@@ -11,6 +11,7 @@ import java.util.Map;
 /**
  * Created by karolis somka on 7/13/2017.
  */
+// Hello
 public class KavosAparatas {
     private int panaudojimai;
     private final int PANAUDOJIMAI_MAX = 5;
