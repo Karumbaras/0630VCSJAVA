@@ -38,12 +38,15 @@ public class MeniuNavigatorius {
                     ka.papildykCukraus();
                     break;
                 case 7:
-                    ka.arAparatasPasiruoses();
+                    ka.papildykPieno();
                     break;
                 case 8:
-                    ka.atlikPlovima();
+                    ka.arAparatasPasiruoses();
                     break;
                 case 9:
+                    ka.atlikPlovima();
+                    break;
+                case 0:
                     programaVeikia = false;
                     break;
                 default:

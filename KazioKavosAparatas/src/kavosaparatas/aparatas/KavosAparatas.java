@@ -24,11 +24,12 @@ public class KavosAparatas {
     public KavosAparatas() {
     }
 
-    public KavosAparatas(int cukrausKiekis, int kavosPupeliuKiekis, int vandensKiekis) {
+    public KavosAparatas(int cukrausKiekis, int kavosPupeliuKiekis, int vandensKiekis, int pienoKiekis) {
 
         this.produktai.setCukrausKiekis(cukrausKiekis);
         this.produktai.setKavosPupeliuKiekis(kavosPupeliuKiekis);
         this.produktai.setVandensKiekis(vandensKiekis);
+        this.produktai.setPienoKiekis(pienoKiekis);
         kavosPuodukai.put("juoda", new JuodosKavosPuodelis());
         kavosPuodukai.put("cappucino", new CapuccinoKavosPuodelis());
         kavosPuodukai.put("machiatto", new MachiattoKavosPuodelis());
@@ -52,6 +53,12 @@ public class KavosAparatas {
 
         this.produktai.setCukrausKiekis(15);
         System.out.println("Papildytas cukrus.");
+        naujaEilute();
+    }
+
+    public void papildykPieno() {
+        this.produktai.setPienoKiekis(15);
+        System.out.println("Papildytas pienas.");
         naujaEilute();
     }
 
@@ -83,6 +90,7 @@ public class KavosAparatas {
                 this.produktai.setCukrausKiekis(this.produktai.getCukrausKiekis() - kavosPuodelis.produktai.getCukrausKiekis());
                 this.produktai.setKavosPupeliuKiekis(this.produktai.getKavosPupeliuKiekis() - kavosPuodelis.produktai.getKavosPupeliuKiekis());
                 this.produktai.setVandensKiekis(this.produktai.getVandensKiekis() - kavosPuodelis.produktai.getVandensKiekis());
+                this.produktai.setPienoKiekis(this.produktai.getPienoKiekis() - kavosPuodelis.produktai.getPienoKiekis());
                 this.panaudojimuSkaicius += 1;
                 kavosPuodelis.setArKavaPagaminta();
                 kavosPuodelis.setKiekPuodelisUzpildytas(kavosPuodelis.produktai.getCukrausKiekis() + kavosPuodelis.produktai.getKavosPupeliuKiekis() + kavosPuodelis.produktai.getVandensKiekis());
@@ -108,8 +116,9 @@ public class KavosAparatas {
         int cukrus = this.produktai.getCukrausKiekis() - kavosPuodelis.produktai.getCukrausKiekis();
         int kavosPupeles = this.produktai.getKavosPupeliuKiekis() - kavosPuodelis.produktai.getKavosPupeliuKiekis();
         int vanduo = this.produktai.getVandensKiekis() - kavosPuodelis.produktai.getVandensKiekis();
+        int pienas = this.produktai.getPienoKiekis() - kavosPuodelis.produktai.getPienoKiekis();
 
-        if (cukrus < 0 || kavosPupeles < 0 || vanduo < 0) {
+        if (cukrus < 0 || kavosPupeles < 0 || vanduo < 0 || pienas < 0) {
             rezultatas = true;
         }
 
@@ -154,6 +163,11 @@ public class KavosAparatas {
         if (this.panaudojimuSkaicius <= 0) {
             System.out.println("Aparatas yra išvalytas.");
         }
+
+        if (this.produktai.getPienoKiekis() <= 0) {
+            System.out.println("Aparate trūksta pieno.");
+        }
+
         if (this.panaudojimuSkaicius >= MAX_PANAUDOJIMU_SKAICIUS) {
             System.out.println("Aparatą reikia plauti.");
             naujaEilute();
@@ -166,7 +180,8 @@ public class KavosAparatas {
     public void produktuBusena() {
         System.out.println("Aparate yra " + this.produktai.getCukrausKiekis() +
                 " cukraus, " +              this.produktai.getKavosPupeliuKiekis() +
-                " kavos pupelių, " +        this.produktai.getVandensKiekis() + " vandens. ");
+                " kavos pupelių, " +        this.produktai.getVandensKiekis() +
+                " vandens, " + this.produktai.getPienoKiekis() + " pieno.");
     }
 
     public void atspausdinkPasirinkimuMeniu() {
@@ -178,16 +193,18 @@ public class KavosAparatas {
         System.out.println("4. Papildyti vandenį ");
         System.out.println("5. Papildyti kavos pupeles ");
         System.out.println("6. Papildyti cukrų ");
-        System.out.println("7. Aparato būsena ");
-        System.out.println("8. Plauti aparatą ");
-        System.out.println("9. Baigti darbą ");
+        System.out.println("7. Papildyti pieno ");
+        System.out.println("8. Aparato būsena ");
+        System.out.println("9. Plauti aparatą ");
+        System.out.println("0. Baigti darbą ");
     }
 
-    public Produktai setProduktai(int cukrus, int kavosPupeliuKiekis, int vandensKiekis) {
+    public Produktai setProduktai(int cukrus, int kavosPupeliuKiekis, int vandensKiekis, int pienoKiekis) {
 
         produktai.setCukrausKiekis(cukrus);
         produktai.setKavosPupeliuKiekis(kavosPupeliuKiekis);
         produktai.setVandensKiekis(vandensKiekis);
+        produktai.setPienoKiekis(pienoKiekis);
 
         return produktai;
     }
@@ -197,6 +214,7 @@ public class KavosAparatas {
         kavosAparatoProdauktai.setKavosPupeliuKiekis(produktai.getKavosPupeliuKiekis());
         kavosAparatoProdauktai.setVandensKiekis(produktai.getVandensKiekis());
         kavosAparatoProdauktai.setCukrausKiekis(produktai.getCukrausKiekis());
+        kavosAparatoProdauktai.setPienoKiekis(produktai.getPienoKiekis());
 
     }
 
@@ -204,12 +222,15 @@ public class KavosAparatas {
         int isvalytosPupeles = this.produktai.getKavosPupeliuKiekis();
         int isvalytasVanduo = this.produktai.getVandensKiekis();
         int isvalytasCukrus = this.produktai.getCukrausKiekis();
+        int isvalytasPienas = this.produktai.getPienoKiekis();
         this.produktai.setKavosPupeliuKiekis(0);
         this.produktai.setVandensKiekis(0);
         this.produktai.setCukrausKiekis(0);
+        this.produktai.setPienoKiekis(0);
         System.out.println("Išvalė pupelių " + isvalytosPupeles +
         ", išvalė vandens " + isvalytasVanduo +
-        ", išvalė cukraus " + isvalytasCukrus);
+        ", išvalė cukraus " + isvalytasCukrus +
+        ", išvalė pieno " + isvalytasPienas);
     }
 
     public void naujaEilute() {

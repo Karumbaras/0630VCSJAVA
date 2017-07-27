@@ -6,7 +6,7 @@ public class CapuccinoKavosPuodelis extends KavosPuodelis {
 
     public CapuccinoKavosPuodelis() {
 
-        super("Capuccino", 3, 3, 3);
+        super("Capuccino", 3, 3, 3, 3);
 
     }
 
