@@ -5,6 +5,8 @@ import lt.vcs.kavosaparatai.puodeliai.KavosPuodelis;
 import lt.vcs.kavosaparatai.resursai.Produktai;
 import lt.vcs.kavosaparatai.servisai.KavosAparatuServisas;
 
+
+// Linkejimai visiems!
 // Main klasë kurioje bandau naudoti kavos aparatus
 public class Main {
 
