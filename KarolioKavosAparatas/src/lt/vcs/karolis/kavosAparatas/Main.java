@@ -10,7 +10,7 @@ public class Main {
     // 1. Iškelti atskirai Kavos aparato projektą
     //
 
-
+// Hello
     public static void main(String[] args) {
         KavosAparatas aparatas = new KavosAparatas(10, 10, 10, 10, 5);
         aparatas.paruoskKavos("juoda");
