@@ -4,6 +4,7 @@ public class CoffeeMain {
 
     public static void main(String[] args) throws OutOfProducts, TimeToClean {
 
+    	// komentaras
         Aptarnavimas aptarnavimasObject = new Aptarnavimas(1);
         CoffeeMachine manoAparatas = aptarnavimasObject.getAparatai(0);
 
