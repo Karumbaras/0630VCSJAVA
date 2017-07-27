@@ -25,3 +25,8 @@ hs_err_pid*
 bin
 .classpath
 .project
+
+#intellij associated files
+.idea
+out
+.iml
