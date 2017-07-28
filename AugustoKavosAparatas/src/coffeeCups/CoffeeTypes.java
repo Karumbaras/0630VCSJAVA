@@ -21,5 +21,6 @@ public enum CoffeeTypes {
     public CoffeeCup getCoffeeTypes() {
         return coffeeCup;
     }
+    
 
 }

@@ -11,13 +11,18 @@ public class CoffeeMain {
         while (true) {
             try {
                 manoAparatas.meniu();
-                aptarnavimasObject.jeiguReikiaIsvalyk(manoAparatas);
+                
                 aptarnavimasObject.issaukMeniu(manoAparatas);
+
+            } catch (OutOfProducts ep) {
+            	System.err.println("Please replenish ingredients");
                 aptarnavimasObject.replenishIngredients(manoAparatas);
 
-            } catch (OutOfProducts | TimeToClean ep) {
-                System.err.println("MESSAGE: " + ep.getMessage());
-                ep.printStackTrace();
+            }
+            catch (TimeToClean ep) {
+            	System.err.println("clean");
+            	aptarnavimasObject.jeiguReikiaIsvalyk(manoAparatas);
+
             }
         }
 
