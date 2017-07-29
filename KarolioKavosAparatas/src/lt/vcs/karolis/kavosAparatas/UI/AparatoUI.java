@@ -131,7 +131,11 @@ public class AparatoUI {
                 int kavosKiekis = nuskaitykInt(reader);
                 System.out.println("Kiek vandens priskirsime? ");
                 int vandensKiekis = nuskaitykInt(reader);
-                Produktai produktai = new Produktai(cukrausKiekis, kavosKiekis, vandensKiekis);
+                System.out.println("Kiek pieno priskirsime? ");
+                int pienoKiekis = nuskaitykInt(reader);
+                System.out.println("Kiek sokolado priskirsime? ");
+                int sokoladoKiekis = nuskaitykInt(reader);
+                Produktai produktai = new Produktai(cukrausKiekis, kavosKiekis, vandensKiekis, pienoKiekis, sokoladoKiekis);
                 servisas.priskirkTuosPaciusProduktus(produktai);
                 break;
             case 2:

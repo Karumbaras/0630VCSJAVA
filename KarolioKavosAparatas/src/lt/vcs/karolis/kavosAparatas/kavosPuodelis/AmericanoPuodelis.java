@@ -8,6 +8,6 @@ import lt.vcs.karolis.kavosAparatas.produktai.Produktai;
 public class AmericanoPuodelis extends KavosPuodelis {
 
     public AmericanoPuodelis() {
-        super("Americano", new Produktai(3, 4, 4));
+        super("Americano", new Produktai(3, 4, 4, 2, 3));
     }
 }

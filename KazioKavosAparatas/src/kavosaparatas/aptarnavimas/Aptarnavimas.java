@@ -10,12 +10,13 @@ public class Aptarnavimas {
     int isvalytasVanduo = 0;
     int isvalytosKavosPupeles = 0;
     int isvalytasCukrus = 0;
+    int isvalytasPienas = 0;
 
     public KavosAparatas[] sukurkAparatus(KavosAparatas[] aparatai, int skaicius) {
 
         if (aparatai != null) {
             for (int i = 0; i < skaicius; i++) {
-                aparatai[i] = new KavosAparatas(1, 2, 3);
+                aparatai[i] = new KavosAparatas(1, 2, 3, 4);
             }
             return aparatai;
         }
@@ -26,7 +27,7 @@ public class Aptarnavimas {
 
         if (aparatai != null) {
             for (int i = 0; i < skaicius; i++) {
-                aparatai.add(new KavosAparatas(3,2,1));
+                aparatai.add(new KavosAparatas(3,2,1, 1));
             }
             return aparatai;
         }
@@ -37,7 +38,7 @@ public class Aptarnavimas {
 
         if (aparatai != null) {
             for (int i = 0; i < skaicius; i++) {
-                aparatai.put(i, new KavosAparatas(2, 2, 2));
+                aparatai.put(i, new KavosAparatas(2, 2, 2, 2));
             }
             return aparatai;
         }
@@ -54,11 +55,13 @@ public class Aptarnavimas {
                 isvalytasVanduo += aparatai[i].produktai.getVandensKiekis();
                 isvalytosKavosPupeles += aparatai[i].produktai.getKavosPupeliuKiekis();
                 isvalytasCukrus += aparatai[i].produktai.getCukrausKiekis();
+                isvalytasPienas += aparatai[i].produktai.getPienoKiekis();
             }
 
             System.out.println("Iš viso išalyta vandens " + isvalytasVanduo);
             System.out.println("Iš viso išvalyta kavos pupelių " + isvalytosKavosPupeles);
             System.out.println("Iš viso išvalyta cukraus " + isvalytasCukrus);
+            System.out.println("Iš viso išvalyta pieno " + isvalytasPienas);
             return aparatai;
         }
 
@@ -73,11 +76,13 @@ public class Aptarnavimas {
                 isvalytasVanduo += k.produktai.getVandensKiekis();
                 isvalytosKavosPupeles += k.produktai.getKavosPupeliuKiekis();
                 isvalytasCukrus += k.produktai.getCukrausKiekis();
+                isvalytasPienas += k.produktai.getPienoKiekis();
             }
 
             System.out.println("Iš viso išalyta vandens " + isvalytasVanduo);
             System.out.println("Iš viso išvalyta kavos pupelių " + isvalytosKavosPupeles);
             System.out.println("Iš viso išvalyta cukraus " + isvalytasCukrus);
+            System.out.println("Iš viso išvalyta pieno " + isvalytasPienas);
             return aparatai;
         }
 
@@ -92,10 +97,12 @@ public class Aptarnavimas {
                 isvalytasVanduo += k.produktai.getVandensKiekis();
                 isvalytosKavosPupeles += k.produktai.getKavosPupeliuKiekis();
                 isvalytasCukrus += k.produktai.getCukrausKiekis();
+                isvalytasPienas += k.produktai.getPienoKiekis();
             }
             System.out.println("Iš viso išalyta vandens " + isvalytasVanduo);
             System.out.println("Iš viso išvalyta kavos pupelių " + isvalytosKavosPupeles);
             System.out.println("Iš viso išvalyta cukraus " + isvalytasCukrus);
+            System.out.println("Iš viso išvalyta pieno " + isvalytasPienas);
             return aparatai;
         }
 
@@ -181,7 +188,7 @@ public class Aptarnavimas {
 
     public KavosAparatas[] priskirkTaPatiProdukta(KavosAparatas[] aparatai) {
 
-        Produktai produktai = new Produktai(15, 15, 15);
+        Produktai produktai = new Produktai(15, 15, 15, 15);
 
         if (aparatai != null) {
 
@@ -195,7 +202,7 @@ public class Aptarnavimas {
 
     public List priskirkTaPatiProdukta(List<KavosAparatas> aparatai) {
 
-        Produktai produktai = new Produktai(15, 15, 15);
+        Produktai produktai = new Produktai(15, 15, 15, 15);
 
         if (aparatai != null) {
 
@@ -209,7 +216,7 @@ public class Aptarnavimas {
 
     public Map priskirkTaPatiProdukta(HashMap<Integer, KavosAparatas> aparatai) {
 
-        Produktai produktai = new Produktai(15, 15, 15);
+        Produktai produktai = new Produktai(15, 15, 15, 15);
 
         if (aparatai != null) {
 
@@ -226,7 +233,7 @@ public class Aptarnavimas {
         if (aparatai != null) {
 
             for (int i = 0; i < aparatai.length; i++) {
-                aparatai[i].setProduktai(new Produktai(7, 8, 9));
+                aparatai[i].setProduktai(new Produktai(7, 8, 9, 10));
             }
             return aparatai;
         }
@@ -238,7 +245,7 @@ public class Aptarnavimas {
         if (aparatai != null) {
 
             for (KavosAparatas k : aparatai) {
-                k.setProduktai(new Produktai(7, 8, 9));
+                k.setProduktai(new Produktai(7, 8, 9, 10));
             }
             return aparatai;
         }
@@ -250,7 +257,7 @@ public class Aptarnavimas {
         if (aparatai != null) {
 
             for (KavosAparatas k : aparatai.values()) {
-                k.setProduktai(new Produktai(7, 8, 9));
+                k.setProduktai(new Produktai(7, 8, 9, 10));
             }
             return aparatai;
         }

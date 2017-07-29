@@ -91,6 +91,7 @@ public class Aptarnavimas {
             aparatas.produktai.setCukrus(aparatas.produktai.getCukrus() + 200);
             aparatas.produktai.setPupeles(aparatas.produktai.getPupeles() + 200);
             aparatas.produktai.setVanduo(aparatas.produktai.getVanduo() + 200);
+            aparatas.produktai.setPienas(aparatas.produktai.getPienas() + 200);
 
             System.out.println("Products were replenished");
             aparatas.productsEnough = true;

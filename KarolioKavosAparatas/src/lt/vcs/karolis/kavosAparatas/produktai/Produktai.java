@@ -7,11 +7,31 @@ public class Produktai {
     private int cukrausKiekis;
     private int kavosKiekis;
     private int vandensKiekis;
+    private int pienoKiekis;
+    private int sokoladoKiekis;
 
-    public Produktai(int cukrausKiekis, int kavosKiekis, int vandensKiekis) {
+    public Produktai(int cukrausKiekis, int kavosKiekis, int vandensKiekis, int pienoKiekis, int sokoladoKiekis) {
         this.cukrausKiekis = cukrausKiekis;
         this.kavosKiekis = kavosKiekis;
         this.vandensKiekis = vandensKiekis;
+        this.pienoKiekis = pienoKiekis;
+        this.sokoladoKiekis = sokoladoKiekis;
+    }
+
+    public int getPienoKiekis() {
+        return pienoKiekis;
+    }
+
+    public void setPienoKiekis(int pienoKiekis) {
+        this.pienoKiekis = pienoKiekis;
+    }
+
+    public int getSokoladoKiekis() {
+        return sokoladoKiekis;
+    }
+
+    public void setSokoladoKiekis(int sokoladoKiekis) {
+        this.sokoladoKiekis = sokoladoKiekis;
     }
 
     public int getCukrausKiekis() {
@@ -39,7 +59,7 @@ public class Produktai {
     }
 
     public Produktai grazinkKopija() {
-        return new Produktai(this.cukrausKiekis, this.kavosKiekis, this.vandensKiekis );
+        return new Produktai(this.cukrausKiekis, this.kavosKiekis, this.vandensKiekis, this.pienoKiekis, this.sokoladoKiekis );
     }
 
     public String toString() {

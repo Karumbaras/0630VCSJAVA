@@ -15,10 +15,11 @@ public class KavosPuodelis extends Puodelis {
     public KavosPuodelis() {
     }
 
-    public KavosPuodelis(String kavosVardas, int cukrusGaminimui, int kavosPupelesGaminimui, int vanduoGaminimui) {
+    public KavosPuodelis(String kavosVardas, int cukrusGaminimui, int kavosPupelesGaminimui, int vanduoGaminimui, int pienasGaminimui) {
         this.produktai.setCukrausKiekis(cukrusGaminimui);
         this.produktai.setKavosPupeliuKiekis(kavosPupelesGaminimui);
         this.produktai.setVandensKiekis(vanduoGaminimui);
+        this.produktai.setPienoKiekis(pienasGaminimui);
         this.kavosVardas = kavosVardas;
     }
 

@@ -40,14 +40,18 @@ public class Servisas {
             int isvalytaCukraus = 0;
             int isvalytaKavos = 0;
             int isvalytaVandens = 0;
+            int isvalytaPieno = 0;
+            int isvalytaSokolado = 0;
             System.out.println("Isvalyta: ");
             for (KavosAparatas aparatas : aparatai) {
-                isvalytaCukraus += aparatas.getCukrausKiekis();
-                isvalytaKavos += aparatas.getKavosKiekis();
-                isvalytaVandens += aparatas.getVandensKiekis();
-                aparatas.setCukrausKiekis(0);
-                aparatas.setKavosKiekis(0);
-                aparatas.setVandensKiekis(0);
+                isvalytaCukraus += aparatas.produktai.getCukrausKiekis();
+                isvalytaKavos += aparatas.produktai.getKavosKiekis();
+                isvalytaVandens += aparatas.produktai.getVandensKiekis();
+                isvalytaPieno += aparatas.produktai.getPienoKiekis();
+                isvalytaSokolado += aparatas.produktai.getSokoladoKiekis();
+                aparatas.produktai.setCukrausKiekis(0);
+                aparatas.produktai.setKavosKiekis(0);
+                aparatas.produktai.setVandensKiekis(0);
             }
             System.out.println("Cukraus: " + isvalytaCukraus);
             System.out.println("Kavos: " + isvalytaKavos);
@@ -90,7 +94,7 @@ public class Servisas {
 
     public void priskirkSkirtingusProduktus() {
         for(KavosAparatas aparatas : aparatai) {
-            aparatas.setProduktai(new Produktai(getRandom(), getRandom(), getRandom()));
+            aparatas.setProduktai(new Produktai(getRandom(), getRandom(), getRandom(), getRandom(), getRandom()));
         }
         System.out.println("Produktai priskirti!");
     }

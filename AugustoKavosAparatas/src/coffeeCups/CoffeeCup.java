@@ -9,13 +9,13 @@ public class CoffeeCup extends Cup {
     private boolean isDone = false;
     public static int coffeesMade = 0;
 
-    public CoffeeCup(int cukrus, int pupeles, int vanduo, String pavadinimas) { //arba viskas angliškai arba lietuviškai
-        products = new CoffeeProducts(cukrus, pupeles, vanduo);
+    public CoffeeCup(int cukrus, int pupeles, int vanduo, int pienas, String pavadinimas) { //arba viskas angliškai arba lietuviškai
+        products = new CoffeeProducts(cukrus, pupeles, vanduo, pienas);
         this.name = pavadinimas;
     }
 
     public CoffeeCup CopyOfCoffeeCup(CoffeeCup cup) {
-        return new CoffeeCup(this.getSugar(), this.getBeans(), this.getWater(), this.name);
+        return new CoffeeCup(this.getSugar(), this.getBeans(), this.getWater(), this.getMilk(), this.name);
     }
 
     @Override
@@ -48,11 +48,14 @@ public class CoffeeCup extends Cup {
 
     public boolean coffeeStatus() {
         return isDone;
-
     }
 
     public void thisCoffeeMade() {
 
     }
+    public int getMilk() {
+        return products.getPienas();
+    }
+   
 
 }

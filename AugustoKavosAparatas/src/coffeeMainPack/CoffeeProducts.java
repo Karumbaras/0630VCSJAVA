@@ -6,20 +6,29 @@ public class CoffeeProducts {
     private int cukrus;
     private int pupeles;
     private int vanduo;
+    private int pienas;
 
     // KONSTRUKTORIUS
-    public CoffeeProducts(int cukrus, int pupeles, int vanduo) {
+    public CoffeeProducts(int cukrus, int pupeles, int vanduo, int pienas) {
         this.cukrus = cukrus;
         this.pupeles = pupeles;
         this.vanduo = vanduo;
+        this.pienas = pienas;
     }
 
     // KURIAMA KOPIJA
     public CoffeeProducts getCopy() {
-        return new CoffeeProducts(this.cukrus, this.pupeles, this.vanduo);
+        return new CoffeeProducts(this.cukrus, this.pupeles, this.vanduo, this.pienas);
     }
 
-    //man sakė, kad rekomenduotina visus get'us ir set'us į kodo galą sukelt (tikiuosi nemelavo)
+    public int getPienas() {
+		return pienas;
+	}
+
+	public void setPienas(int pienas) {
+		this.pienas = pienas;
+	}
+
     public void setCukrus(int cukrus) {
         this.cukrus = cukrus;
     }

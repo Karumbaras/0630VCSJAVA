@@ -11,16 +11,15 @@ import java.util.Map;
 /**
  * Created by karolis somka on 7/13/2017.
  */
-// Hello
 public class KavosAparatas {
     private int panaudojimai;
     private final int PANAUDOJIMAI_MAX = 5;
-    private Produktai produktai;
+    public Produktai produktai;
     public static int sukurtuAparatuSkaicius = 0;
     private Map<String, KavosPuodelis> puodelisMap = new HashMap<>();
 
-    public KavosAparatas(int cukrausKiekis, int kavosKiekis, int vandensKiekis, int panaudojimai) {
-        produktai = new Produktai(cukrausKiekis, kavosKiekis, vandensKiekis);
+    public KavosAparatas(int cukrausKiekis, int kavosKiekis, int vandensKiekis, int pienoKiekis, int sokoladoKiekis, int panaudojimai) {
+        produktai = new Produktai(cukrausKiekis, kavosKiekis, vandensKiekis, pienoKiekis, sokoladoKiekis);
         this.panaudojimai = panaudojimai;
         sukurtuAparatuSkaicius++;
         puodelisMap.put("juoda", new JuodosKavosPuodelis());
@@ -28,30 +27,30 @@ public class KavosAparatas {
         puodelisMap.put("espresso", new EspressoPuodelis());
     }
 
-    public KavosAparatas(int cukrausKiekis, int kavosKiekis, int vandensKiekis) {
-        this(cukrausKiekis, kavosKiekis, vandensKiekis, 0);
+    public KavosAparatas(int cukrausKiekis, int kavosKiekis, int vandensKiekis, int pienoKiekis, int sokoladoKiekis) {
+        this(cukrausKiekis, kavosKiekis, vandensKiekis, pienoKiekis, sokoladoKiekis, 0);
     }
 
-    public KavosAparatas(int cukrausKiekis, int kavosKiekis) {
-        this(cukrausKiekis, kavosKiekis, 0, 0);
+    public KavosAparatas(int cukrausKiekis, int kavosKiekis, int pienoKiekis, int sokoladoKiekis) {
+        this(cukrausKiekis, kavosKiekis, 0, pienoKiekis, sokoladoKiekis, 0);
     }
 
-    public KavosAparatas(int cukrausKiekis) {
-        this(cukrausKiekis, 0, 0, 0);
+    public KavosAparatas(int cukrausKiekis, int pienoKiekis, int sokoladoKiekis) {
+        this(cukrausKiekis, 0, 0, pienoKiekis, sokoladoKiekis,0);
     }
 
     public void papildykKavos(int kavosKiekis) {
-        this.setKavosKiekis(this.getKavosKiekis() + kavosKiekis);
+        this.produktai.setKavosKiekis(this.produktai.getKavosKiekis() + kavosKiekis);
         System.out.println("Prideta kavos!");
     }
 
     public void papildykCukraus(int cukrausKiekis) {
-        this.setCukrausKiekis(this.getCukrausKiekis() + cukrausKiekis);
+        this.produktai.setCukrausKiekis(this.produktai.getCukrausKiekis() + cukrausKiekis);
         System.out.println("Prideta cukraus!");
     }
 
     public void papildykVandens(int vandensKiekis) {
-        this.setVandensKiekis(this.getVandensKiekis() + vandensKiekis);
+        this.produktai.setVandensKiekis(this.produktai.getVandensKiekis() + vandensKiekis);
         System.out.println("Papildyta vandens!");
     }
 
@@ -85,9 +84,9 @@ public class KavosAparatas {
 
     private final KavosPuodelis gaminkKava(KavosPuodelis puodelis) throws TrukstaProduktu{
         if (arUzteksProduktu(puodelis.getProduktai()) && !arReikiaPlauti()) {
-            this.setCukrausKiekis(this.getCukrausKiekis() - puodelis.getProduktai().getCukrausKiekis());
-            this.setKavosKiekis(this.getKavosKiekis() - puodelis.getProduktai().getKavosKiekis());
-            this.setVandensKiekis(this.getVandensKiekis() - puodelis.getProduktai().getVandensKiekis());
+            this.produktai.setCukrausKiekis(this.produktai.getCukrausKiekis() - puodelis.getProduktai().getCukrausKiekis());
+            this.produktai.setKavosKiekis(this.produktai.getKavosKiekis() - puodelis.getProduktai().getKavosKiekis());
+            this.produktai.setVandensKiekis(this.produktai.getVandensKiekis() - puodelis.getProduktai().getVandensKiekis());
             puodelis.setArPagaminta(true);
             this.panaudojimai++;
         }
@@ -111,7 +110,7 @@ public class KavosAparatas {
     */
 
     private boolean arProduktaiNeNuliai() {
-        return arUzteksProduktu(new Produktai(1, 1, 1));
+        return arUzteksProduktu(new Produktai(1, 1, 1, 1, 1));
     }
 
     private boolean arUzteksProduktu(Produktai produktai) {
@@ -154,30 +153,6 @@ public class KavosAparatas {
 
     public void setProduktai(Produktai produktai) {
         this.produktai = produktai;
-    }
-
-    public int getCukrausKiekis() {
-        return this.produktai.getCukrausKiekis();
-    }
-
-    public void setCukrausKiekis(int cukrausKiekis) {
-        this.produktai.setCukrausKiekis(cukrausKiekis);
-    }
-
-    public int getKavosKiekis() {
-        return this.produktai.getKavosKiekis();
-    }
-
-    public void setKavosKiekis(int kavosKiekis) {
-        this.produktai.setKavosKiekis(kavosKiekis);
-    }
-
-    public int getVandensKiekis() {
-        return this.produktai.getVandensKiekis();
-    }
-
-    public void setVandensKiekis(int vandensKiekis) {
-        this.produktai.setVandensKiekis(vandensKiekis);
     }
 
     public int getPanaudojimai() {
